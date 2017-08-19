@@ -1,0 +1,19 @@
+{
+  "name": "beautoms",
+  "version": "1.0.0",
+  "description": "Back-End Automation Managment System",
+  "main": "beautoms.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/robertdumitrescu/BEAUTOMS.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/robertdumitrescu/BEAUTOMS/issues"
+  },
+  "homepage": "https://github.com/robertdumitrescu/BEAUTOMS#readme"
+}
