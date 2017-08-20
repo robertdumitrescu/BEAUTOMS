@@ -22,7 +22,7 @@ global.config = require('./configs/' + global.environmentName + '/config.js');
 
 global.serverAppRoot = path.resolve(__dirname) + "/server";
 
-// global.databaseConnection = DatabaseConnectionBuilder.build(global.config.database.credentials);
+global.databaseConnection = DatabaseConnectionBuilder.build(global.config.database.credentials);
 
 let app = express();
 
@@ -41,8 +41,10 @@ app.use(bodyParser.urlencoded({
 
 /** Controllers */
 let MeasurementsCreateController = require(global.serverAppRoot + '/presentation/measurements/create/measurements.Create.Controller.js');
+let MeasurementsGetController = require(global.serverAppRoot + '/presentation/measurements/get/measurements.Get.Controller.js');
 
 app.use('/', MeasurementsCreateController);
+app.use('/', MeasurementsGetController);
 
 let server = app.listen(5555, function () {
 

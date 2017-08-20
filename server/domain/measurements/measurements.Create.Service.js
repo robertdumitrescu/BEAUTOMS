@@ -21,7 +21,11 @@ class MeasurementsCreateService {
 
         GenericLogger.serviceMethodTriggeredLog(MeasurementsCreateService.name + "." + MeasurementsCreateService.create.name);
 
-
+        await MeasurementsRepository.insert({
+            lightElectricalQuantity : measurement.lightElectricalQuantity,
+            createdDateTime: new Date(),
+            modifiedDateTime: new Date()
+        })
 
 
     }

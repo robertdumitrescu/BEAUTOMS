@@ -1,8 +1,8 @@
 -- --------------------------------------------------------
 -- Host:                         127.0.0.1
--- Server version:               5.7.17-0ubuntu0.16.04.1 - (Ubuntu)
+-- Server version:               5.7.19-0ubuntu0.17.04.1 - (Ubuntu)
 -- Server OS:                    Linux
--- HeidiSQL Version:             9.4.0.5142
+-- HeidiSQL Version:             9.4.0.5125
 -- --------------------------------------------------------
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
@@ -16,12 +16,16 @@
 CREATE DATABASE IF NOT EXISTS `automs` /*!40100 DEFAULT CHARACTER SET latin1 */;
 USE `automs`;
 
+-- Dumping structure for table automs.measurements
+CREATE TABLE IF NOT EXISTS `measurements` (
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `lightElectricalQuantity` int(11) unsigned DEFAULT NULL,
+  `createdDateTime` datetime DEFAULT NULL,
+  `modifiedDateTime` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
-CREATE TABLE `measurements` (
-	`id` INT(11) UNSIGNED NOT NULL AUTO_INCREMENT,
-	`lightElectricalQuantity` INT(11) UNSIGNED NULL DEFAULT NULL,
-	`createdDateTIme` DATETIME NULL DEFAULT NULL,
-	PRIMARY KEY (`id`)
-)
-COLLATE='latin1_swedish_ci'
-ENGINE=InnoDB;
+-- Data exporting was unselected.
+/*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
+/*!40014 SET FOREIGN_KEY_CHECKS=IF(@OLD_FOREIGN_KEY_CHECKS IS NULL, 1, @OLD_FOREIGN_KEY_CHECKS) */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
