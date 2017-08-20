@@ -15,5 +15,17 @@
   "bugs": {
     "url": "https://github.com/robertdumitrescu/BEAUTOMS/issues"
   },
-  "homepage": "https://github.com/robertdumitrescu/BEAUTOMS#readme"
+  "homepage": "https://github.com/robertdumitrescu/BEAUTOMS#readme",
+  "dependencies": {
+    "body-parser": "^1.15.2",
+    "express": "^4.14.0",
+    "localpkg-generic-helper": "git@github.com:robertdumitrescu/localPKG-generic-helper.git",
+    "localpkg-generic-logger": "git@github.com:robertdumitrescu/localPKG-generic-logger.git",
+    "localpkg-sql-query-builder": "git@github.com:robertdumitrescu/localpkg-sql-query-builder.git",
+    "lodash": "^4.16.3",
+    "mariasql": "^0.2.6",
+    "morgan": "^1.7.0",
+    "q": "^1.4.1"
+  },
+  "devDependencies": {}
 }
