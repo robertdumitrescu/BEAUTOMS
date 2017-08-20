@@ -20,11 +20,11 @@ class MeasurementsCreateController {
 
         let measurement = request.body;
 
-        await MeasurementsCreateService.create(measurement);
+        let createdMeasurement = await MeasurementsCreateService.create(measurement);
 
         let successResponseDomainModel = {
             status: 200,
-            data: "lalala"
+            data: createdMeasurement
         };
 
         return successResponseDomainModel;
