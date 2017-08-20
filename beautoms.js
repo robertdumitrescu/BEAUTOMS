@@ -18,7 +18,7 @@ if(typeof global.environmentName === "undefined" || global.environmentName === "
 }
 
 /** Project configs */
-// global.config = require('./configs/' + global.environmentName + '/config.js');
+global.config = require('./configs/' + global.environmentName + '/config.js');
 
 global.serverAppRoot = path.resolve(__dirname) + "/server";
 

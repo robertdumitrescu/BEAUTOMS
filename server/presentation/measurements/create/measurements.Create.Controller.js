@@ -18,14 +18,23 @@ class MeasurementsCreateController {
     static async process(request) {
         GenericLogger.serviceMethodTriggeredLog(MeasurementsCreateController.name + "." + MeasurementsCreateController.process.name);
 
-        return "true";
+        let measurement = request.body;
+
+        await MeasurementsCreateService
+
+        let successResponseDomainModel = {
+            status: 200,
+            data: "lalala"
+        };
+
+        return successResponseDomainModel;
 
 
     }
 }
 
 router.post('/api/measurements', function (request, response) {
-    // GenericLogger.endpointTriggeredLog('/api/measurements');
+    GenericLogger.endpointTriggeredLog('/api/measurements');
 
     MeasurementsCreateController.process(request)
         .then(function (successResponseGenericModel) {
