@@ -16,8 +16,13 @@ const MeasurementsGetService = require(global.serverAppRoot + '/domain/measureme
 class MeasurementsCreateService {
 
     static getLightIntensity(lightElectricalQuantity){
-        let lightElectricalQuantityUpperLimit = 400000;
-        let lightIntensity = (lightElectricalQuantityUpperLimit / lightElectricalQuantity);
+        let relativelightElectricalQuantity = (lightElectricalQuantity * 100) / 18000;
+        let lightIntensity = 100 - relativelightElectricalQuantity;
+        lightIntensity = (8000 * lightIntensity) / 100;
+
+        if(lightIntensity < 0){
+            lightIntensity = 0;
+        }
 
         return lightIntensity;
     }

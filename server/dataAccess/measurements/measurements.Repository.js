@@ -6,6 +6,8 @@ const SqlSelectQueryBuilder = require('localpkg-sql-query-builder').SqlSelectQue
 const SqlInsertQueryBuilder = require('localpkg-sql-query-builder').SqlInsertQueryBuilder;
 const SqlQueryExecuter = require('localpkg-sql-query-builder').SqlQueryExecuter;
 
+/** Models */
+const MeasurementDomainModel = require(global.serverAppRoot + '/domain/models/measurement.Domain.Model');
 
 const tableName = "measurements";
 
@@ -24,7 +26,7 @@ class MeasurementsRepository {
                 "databaseName": global.config.database.credentials.db,
                 "tableName": tableName
             },
-            "targetObject": query,
+            "targetObject": MeasurementDomainModel.toEntityModel(query),
         };
 
         let selectStatement = await SqlSelectQueryBuilder.buildSqlSelectQuery(sqlQueryObject);
@@ -33,7 +35,12 @@ class MeasurementsRepository {
 
         let response = await SqlQueryExecuter.executeSqlQuery(selectStatement, global.databaseConnection);
 
-        return response;
+        let measurementDomainModels = MeasurementDomainModel.fromEntityModels(response);
+
+        GenericLogger.resolvePromiseObjectLog(measurementDomainModels);
+
+        return measurementDomainModels;
+
     }
 
 
