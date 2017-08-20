@@ -6,11 +6,21 @@ const GenericBoolValidatorHelper = require('localpkg-generic-validator').Generic
 
 const MeasurementsRepository = require(global.serverAppRoot + '/dataAccess/measurements/measurements.Repository.js');
 
+/** Services */
+const MeasurementsGetService = require(global.serverAppRoot + '/domain/measurements/measurements.Get.Service.js');
+
 /**
  * @class ContentsCreateService
  * @constructor
  */
 class MeasurementsCreateService {
+
+    static getLightIntensity(lightElectricalQuantity){
+        let lightElectricalQuantityUpperLimit = 400000;
+        let lightIntensity = (lightElectricalQuantityUpperLimit / lightElectricalQuantity);
+
+        return lightIntensity;
+    }
 
     /**
      * @async
@@ -21,11 +31,20 @@ class MeasurementsCreateService {
 
         GenericLogger.serviceMethodTriggeredLog(MeasurementsCreateService.name + "." + MeasurementsCreateService.create.name);
 
-        await MeasurementsRepository.insert({
+        let createdMeasurementId = await MeasurementsRepository.insert({
             lightElectricalQuantity : measurement.lightElectricalQuantity,
+            lightIntensity : MeasurementsCreateService.getLightIntensity(measurement.lightElectricalQuantity),
             createdDateTime: new Date(),
             modifiedDateTime: new Date()
-        })
+        });
+
+        let retrievedSavedMeasurement = await MeasurementsGetService.get(
+            {id: createdMeasurementId},
+            {},
+            {limit: 1}
+        );
+
+        return retrievedSavedMeasurement;
 
 
     }

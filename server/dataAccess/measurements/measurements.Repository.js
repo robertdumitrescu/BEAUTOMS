@@ -24,7 +24,7 @@ class MeasurementsRepository {
                 "databaseName": global.config.database.credentials.db,
                 "tableName": tableName
             },
-            "targetObject": GenericHelper.sanitizeNullProperties(query),
+            "targetObject": query,
         };
 
         let selectStatement = await SqlSelectQueryBuilder.buildSqlSelectQuery(sqlQueryObject);

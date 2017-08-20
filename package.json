@@ -23,6 +23,8 @@
     "localpkg-generic-helper": "git@github.com:robertdumitrescu/localPKG-generic-helper.git",
     "localpkg-generic-logger": "git@github.com:robertdumitrescu/localPKG-generic-logger.git",
     "localpkg-sql-query-builder": "git@github.com:robertdumitrescu/localpkg-sql-query-builder.git",
+    "localpkg-generic-requirements-service": "git@github.com:robertdumitrescu/localpkg-generic-requirements-service.git",
+    "localpkg-generic-response-handler": "git@github.com:robertdumitrescu/localpkg-generic-response-handler.git",
     "lodash": "^4.16.3",
     "mariasql": "^0.2.6",
     "morgan": "^1.7.0",

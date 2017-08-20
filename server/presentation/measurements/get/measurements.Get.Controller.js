@@ -6,21 +6,29 @@ let router = express.Router();
 /** localpkg packages */
 const GenericLogger = require('localpkg-generic-logger');
 
+/** Models */
+const GenericRequirementsDomainModel = require("localpkg-generic-requirements-service").GenericRequirementsDomainModel;
+
 /** Services */
-const MeasurementsCreateService = require(global.serverAppRoot + '/domain/measurements/measurements.Create.Service.js');
+const MeasurementsGetService = require(global.serverAppRoot + '/domain/measurements/measurements.Get.Service.js');
 
 /**
  * @class CategoriesCreateController
  * @constructor
  */
-class MeasurementsCreateController {
+class MeasurementsGetController {
 
     static async process(request) {
-        GenericLogger.serviceMethodTriggeredLog(MeasurementsCreateController.name + "." + MeasurementsCreateController.process.name);
+        GenericLogger.serviceMethodTriggeredLog(MeasurementsGetController.name + "." + MeasurementsGetController.process.name);
+
+        let requirements = {};
+        let genericRequirements = GenericRequirementsDomainModel.fromViewModel(request.query);
+
+        let measurements = await MeasurementsGetService.get(request.query, requirements, genericRequirements);
 
         let successResponseDomainModel = {
             status: 200,
-            data: "lalala"
+            data: measurements
         };
 
         return successResponseDomainModel;
@@ -32,7 +40,7 @@ class MeasurementsCreateController {
 router.get('/api/measurements', function (request, response) {
     GenericLogger.endpointTriggeredLog('/api/measurements');
 
-    MeasurementsCreateController.process(request)
+    MeasurementsGetController.process(request)
         .then(function (successResponseGenericModel) {
             response.status(successResponseGenericModel.status).send(successResponseGenericModel);
         })
