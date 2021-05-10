@@ -25,7 +25,7 @@
     "localpkg-sql-query-builder": "git@github.com:robertdumitrescu/localpkg-sql-query-builder.git",
     "localpkg-generic-requirements-service": "git@github.com:robertdumitrescu/localpkg-generic-requirements-service.git",
     "localpkg-generic-response-handler": "git@github.com:robertdumitrescu/localpkg-generic-response-handler.git",
-    "lodash": "^4.16.3",
+    "lodash": "^4.17.21",
     "mariasql": "^0.2.6",
     "morgan": "^1.7.0",
     "q": "^1.4.1"
