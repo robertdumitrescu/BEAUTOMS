@@ -18,8 +18,8 @@
   },
   "homepage": "https://github.com/robertdumitrescu/BEAUTOMS#readme",
   "dependencies": {
-    "body-parser": "^1.15.2",
-    "express": "^4.14.0",
+    "body-parser": "^1.20.1",
+    "express": "^4.18.2",
     "localpkg-generic-helper": "git@github.com:robertdumitrescu/localPKG-generic-helper.git",
     "localpkg-generic-logger": "git@github.com:robertdumitrescu/localPKG-generic-logger.git",
     "localpkg-sql-query-builder": "git@github.com:robertdumitrescu/localpkg-sql-query-builder.git",
